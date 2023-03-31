@@ -142,7 +142,6 @@ const Table = () => {
 
   return (
     <>
-    //pass props to settings
     <Settings  hideButtons={handleSettingToggle} isVisible={isVisible}/>
       {isVisible && <TableControl 
       requests={handleRequestsButtonClick}
@@ -157,7 +156,6 @@ const Table = () => {
       <table className="table">
         <thead>
           <tr>
-            //conditional rendering
             {visibleColumns.date && <th> <img src={filterImage} alt="" /><div>Date</div></th>}
             {visibleColumns.app && <th><img src={filterImage} alt="" /> <div>App</div><div className="average">{appCount}</div></th>}
             {visibleColumns.requests && <th><img src={filterImage} alt="" /> <div>Requests</div><div className="average">{formatNumber(totalRequestValue)}</div></th>}
@@ -189,7 +187,7 @@ const Table = () => {
             const response = formatNumber(item.responses);
             const impressions = formatNumber(item.impressions);
             const clicks = formatNumber(item.clicks);
-            //returns mapped modified data from API to table
+            /*returns mapped modified data from API to table*/
             return (
               <tr key={index}>
                 {visibleColumns.date && <td>{formattedDate}</td>}
