@@ -1,0 +1,49 @@
+.content{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+    border: 1px solid;
+    margin: 2rem;
+    border-color: rgb(223, 223, 223);
+    border-radius: 5px;
+    height: auto;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    .dimensions{
+        font-weight: 700;
+        font-size: 13px;
+    }
+
+    .buttons{
+        margin-top: -1rem;
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        flex-wrap: wrap;
+        
+        button{
+            border: 1px solid;
+            border-color: rgb(223, 223, 223);
+            background-color: rgba(240, 248, 255, 0);
+            height: 30px;
+            margin-top: 0.5rem;
+            font-weight: 700;
+            font-size: 12px;
+            border-radius: 4px;
+            border-left: 4px solid;
+            border-left-color: #136FED;
+            width: 150px;
+            padding-left: 20px;
+            align-items: center;
+           
+        } 
+    }
+    
+  
+    button:hover{
+        background-color: rgb(231, 231, 231);
+    }
+}

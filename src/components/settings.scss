@@ -1,0 +1,45 @@
+.settings{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    .left{
+        display: flex;
+        margin-left: 2rem;
+    }
+    .right{
+        display: flex;
+        margin-right: 2rem;
+
+        button{
+            font-weight: 700;
+            border: 1px solid;
+            border-color: rgb(223, 223, 223);
+            background-color: rgba(240, 248, 255, 0);
+            display: flex;
+            gap: 10px;
+            height: 35px;
+            margin-top: 0.5rem;
+            font-weight: 700;
+            font-size: 12px;
+            border-radius: 5px;
+            width: 100px;
+            align-items: center;
+            justify-content: center;
+         
+
+
+            .settingIcon{
+                width:20px;
+                height: auto;
+            }
+        }
+        button:hover{
+            background-color: rgb(231, 231, 231);
+        }
+    }
+
+    
+}
