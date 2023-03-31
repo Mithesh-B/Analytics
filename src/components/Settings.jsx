@@ -8,9 +8,11 @@ import { setDateRange } from '../dateRangeSlice';
 
 
 function Settings({hideButtons}) {
+
+
   const [datePicker, setDatePicker] = useState([]);
   const dispatch = useDispatch();
-
+  //format date and dispatch it with redux
   const handleDateRangeChange = (value) => {
     setDatePicker(value);
     const startDate = moment(value[0]).format('YYYY-MM-DD');

@@ -9,9 +9,13 @@ import { selectStartDate, selectEndDate } from '../dateRangeSlice';
 const Table = () => {
   
     const filterImage = './filter.webp'
+    //state of 1st fetch request
     const [data1, setData1] = useState([]);
+    //state of second fetch request
     const [data2, setData2] = useState([]);
+    //hide buttons toggle
     const [isVisible, setIsVisible] = useState(false);
+    //state management for table column visibility
     const [visibleColumns, setVisibleColumns] = useState({
     date: true,
     app: true,
@@ -23,11 +27,11 @@ const Table = () => {
     fillRate: true,
     CTR: true
   });
-
+  //get dates from redux store
   const startDate = useSelector(selectStartDate);
   const endDate = useSelector(selectEndDate);
   
-
+//fetch from api
   useEffect(() => {
     const fetchData1 = async () => {
 
@@ -78,8 +82,7 @@ const Table = () => {
   };
   const mergedData = getMergedData();
 
-  //button event handler
-
+  //button event handlers
   const handleRequestsButtonClick = () => {
     setVisibleColumns({ ...visibleColumns, 
         requests: !visibleColumns.requests,
@@ -117,7 +120,7 @@ const Table = () => {
         CTR: !visibleColumns.CTR,
      });
   };
-
+//hide buttons toggle
   const handleSettingToggle= () => {
     setIsVisible(!isVisible);
   };
@@ -125,6 +128,8 @@ const Table = () => {
    const formatNumber = (number) => number ? new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 10 }).format(number) : '';
   //total values for table title
   const appCount= mergedData?.length
+
+  //use reduce to get total value
   const getTotalValue = (data, property) => data?.reduce((accumulator, currentItem) => {
     return accumulator + currentItem[property];
   }, 0);
@@ -137,6 +142,7 @@ const Table = () => {
 
   return (
     <>
+    //pass props to settings
     <Settings  hideButtons={handleSettingToggle} isVisible={isVisible}/>
       {isVisible && <TableControl 
       requests={handleRequestsButtonClick}
@@ -151,6 +157,7 @@ const Table = () => {
       <table className="table">
         <thead>
           <tr>
+            //conditional rendering
             {visibleColumns.date && <th> <img src={filterImage} alt="" /><div>Date</div></th>}
             {visibleColumns.app && <th><img src={filterImage} alt="" /> <div>App</div><div className="average">{appCount}</div></th>}
             {visibleColumns.requests && <th><img src={filterImage} alt="" /> <div>Requests</div><div className="average">{formatNumber(totalRequestValue)}</div></th>}
